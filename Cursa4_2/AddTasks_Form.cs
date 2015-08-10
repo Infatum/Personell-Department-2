@@ -30,9 +30,15 @@ namespace Cursa4_2
             dtpSD.DataBindings.Add("Value", _task, "Start_Date");
             dtpDead.DataBindings.Add("Value", _task, "Deadline");
         }
-
+         
         private void button1_Click(object sender, EventArgs e)
         {
+            if (tbName.Text.Length == 0 || tbCode.Text.Length == 0 || tbTask.Text.Length == 0)
+            {
+                MessageBox.Show("Введіть, будь ласка, усі дані");
+                return;
+            }
+            else
             _task.Modify();
             Tasks.data.Add(_task);
             Close();
